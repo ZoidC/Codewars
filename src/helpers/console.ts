@@ -47,19 +47,28 @@ const generateRow = (array: number[]) => {
 ╚═════════════╝
 */
 
-export const squareIt = (message: string | string[]) => {
+export const squareIt = (message: string | string[], nbSquare: number = 1): string[] => {
+    if (nbSquare <= 0) throw new Error(`${nbSquare} must be higher than 0`);
+
+    const display: string[] = [];
 	if (Array.isArray(message)) {
 		message = applySpacing(message);
-		console.log(topMessage(message.length ? message[0] : ""));
+        display.push(topMessage(message.length ? message[0] : ""));
 		message.forEach((m) => {
-			console.log(aroundMessage(m));
+			display.push(aroundMessage(m));
 		});
-		console.log(botMessage(message.length ? message[message.length - 1] : ""));
+		display.push(botMessage(message.length ? message[message.length - 1] : ""));
 	} else {
-		console.log(topMessage(message));
-		console.log(aroundMessage(message));
-		console.log(botMessage(message));
+		display.push(topMessage(message));
+		display.push(aroundMessage(message));
+		display.push(botMessage(message));
 	}
+
+    nbSquare--;
+    if(nbSquare > 0) return squareIt(display, nbSquare);
+
+    display.forEach(line => console.log(line));
+    return display;
 }
 
 /*
@@ -72,12 +81,16 @@ export const squareIt = (message: string | string[]) => {
 ╚═══╩═══╩═══╝
 */
 
-export const displayArray2D = (array: number[][]) => {
-    console.log(topMessage(array.length ? generateRow(array[0]) : ""));
+export const displayArray2D = (array: number[][], log: boolean = true): string[] => {
+    const display: string[] = [];
+    display.push(topMessage(array.length ? generateRow(array[0]) : ""));
     for(let x = 0; x < array.length; x++) {
         const row = generateRow(array[x]);
-        console.log(aroundMessage(row));
-        if (x < array.length - 1) console.log(betweenMessage(row));
+        display.push(aroundMessage(row));
+        if (x < array.length - 1) display.push(betweenMessage(row));
     }
-    console.log(botMessage(array.length ? generateRow(array[array.length - 1]) : ""));
+    display.push(botMessage(array.length ? generateRow(array[array.length - 1]) : ""));
+
+    if (log) display.forEach(line => console.log(line));
+    return display;
 }
