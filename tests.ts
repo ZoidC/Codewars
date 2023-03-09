@@ -57,3 +57,5 @@ export const runTests = () => {
     testArrayEquals([6,8,3,2], getSquare(puzzle, { x: 4, y: 4 }), currentTest);
     console.log('✔', currentTest);
 }
+
+runTests();
