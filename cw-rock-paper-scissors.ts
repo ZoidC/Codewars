@@ -7,8 +7,9 @@ const kata = "Rock Paper Scissors";
 runTests(kata);
 
 squareIt(kata, 2);
-// https://www.codewars.com/kata/5672a98bdbdd995fad00000f
-playRockPaperScissors("rock", "rock");
-playRockPaperScissors("rock", "paper");
+// • https://www.codewars.com/kata/5672a98bdbdd995fad00000f
+
+// playRockPaperScissors("rock", "rock");
+// playRockPaperScissors("rock", "paper");
 playRockPaperScissors("rock", "scissors");
-playRockPaperScissors("rock", "zoidc");
+// playRockPaperScissors("rock", "zoidc");
