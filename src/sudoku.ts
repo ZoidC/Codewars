@@ -1,6 +1,4 @@
-// https://www.codewars.com/kata/5296bc77afba8baa690002d7
-
-import { getColumn, getLine, removeZeros, substractContent } from "./helpers/array";
+import { getColumn, getRow, removeZeros, substractContent } from "./helpers/array";
 import { displayArray2D, squareIt } from "./helpers/console";
 import { Position } from "./types/Position";
 
@@ -8,7 +6,7 @@ import { Position } from "./types/Position";
 export const validate = (array: number[][], values: number[], pos: Position): number => {
     const value = array[pos.x][pos.y];
     if (value !== 0) return value;
-    let all = getLine(array, pos.x).concat(getColumn(array, pos.y), getSquare(array, pos));
+    let all = getRow(array, pos.x).concat(getColumn(array, pos.y), getSquare(array, pos));
     all = removeZeros(all);
     all = substractContent(values, all);
     // if (all.length === 1) console.log("Found :", pos, ":", all[0]);

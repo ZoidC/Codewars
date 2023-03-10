@@ -1,5 +1,5 @@
 import { squareIt } from "../helpers/console";
-import { compareArrays, getColumn, getLine, removeDuplicates, removeZeros, substractContent } from "../helpers/array";
+import { compareArrays, getColumn, getRow, removeDuplicates, removeZeros, substractContent } from "../helpers/array";
 import { getSquare as getSudokuSquare, validate as validateSudoku } from "../sudoku";
 
 // Tests
@@ -34,10 +34,10 @@ export const runTests = (name: string) => {
     testArrayEquals([0,0,0,3,1,6,0,5,9], getColumn(puzzle, 8), currentTest);
     console.log('✔', currentTest);
 
-    currentTest = "getLine";
-    testArrayEquals([5,3,0,0,7,0,0,0,0], getLine(puzzle, 0), currentTest);
-    testArrayEquals([4,0,0,8,0,3,0,0,1], getLine(puzzle, 4), currentTest);
-    testArrayEquals([0,0,0,0,8,0,0,7,9], getLine(puzzle, 8), currentTest);
+    currentTest = "getRow";
+    testArrayEquals([5,3,0,0,7,0,0,0,0], getRow(puzzle, 0), currentTest);
+    testArrayEquals([4,0,0,8,0,3,0,0,1], getRow(puzzle, 4), currentTest);
+    testArrayEquals([0,0,0,0,8,0,0,7,9], getRow(puzzle, 8), currentTest);
     console.log('✔', currentTest);
 
     currentTest = "removeDuplicates";
